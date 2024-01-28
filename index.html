@@ -29,7 +29,7 @@
 --VeryLightGray: hsl(0, 0%, 98%);
 --White: hsl(0, 0%, 100%);
 }
-    .attribution { font-size: 11px; text-align: center; }
+    .attribution { font-size: 11px; text-align: center; background-color: var(--DarkBlue);}
     .attribution a { color: hsl(228, 45%, 44%); }
 
     @media only screen and (max-width: 600px) {
@@ -39,14 +39,35 @@ header ul, header button{
 }
 
 header{
-  padding: 0.5rem;
+  padding: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   background-color: #fff;
+  position: sticky;
+   z-index: 2;
+}
+.overlay{
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+   z-index: 10;
+   position: absolute;
+   width: 88%;
+   background-color: var(--VeryLightGray);
+   margin: 1rem;
+   color: var(--DarkBlue);
+}
+.overlay ul li{
+  padding: 0.8rem 0;
+  cursor: pointer;
+  background-color: var(--White);
+}
+.overlay.closed{
+  display: none;
 }
 
-header, main, section, footer{
+ section, footer{
   margin: 1rem 0;
 }
       
@@ -65,12 +86,23 @@ header, main, section, footer{
       background: linear-gradient(90deg, var(--LimeGreen), var(--BrightCyan));
       cursor: pointer;
     }
+    .hamburger.isClosed{
+      display: none;
+    }
+    #bg-pc{
+      display: none;
+    }
+    #mockUp{
+      position: relative;
+       z-index: 1;
+       margin-top: -5em;
+    }
+    #bg-mobile{
+      position: absolute;
+    }
 
     main, section{
       text-align: center;
-    }
-    article{
-      text-align: left;
     }
 
     h1, h2{
@@ -144,7 +176,7 @@ header, main, section, footer{
     }
 
     footer img{
-      margin-top: 1rem;
+      margin: 1rem 0;
     }
     .links, .icons{
       cursor: pointer;
@@ -161,11 +193,216 @@ header, main, section, footer{
       margin: 1rem 0;
     }
   }
+
+  /*BREAKPOINT: 600PX MAX */
+  @media only screen and (min-width:600px){
+    h1, h2, h4, h6{
+      color: var(--DarkBlue);
+    }
+
+    header{
+  padding: 0.8rem 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  position: sticky;
+   z-index: 2;
+   width: 100%;
+}
+header img{
+  width: 80px;
+  padding: 1rem 0;
+  position: absolute;
+  left:10%;
+}
+header ul{
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+      list-style-type: none;
+      margin: 0.5rem 0;
+      color: var(--GrayishBlue);
+       margin-left: 1.5rem;
+       margin-right: 0.5rem;
+    }
+    header ul li{
+      margin: 0 0.5rem;
+    }
+    header button{
+      position: absolute;
+      right: 2%;
+    }
+    main{
+      background-color: var(--VeryLightGray);
+      margin-bottom: 0;
+      height: 70vh;
+    }
+    .bg{
+      float: right;
+      width: 45%;
+      background-color: var(--VeryLightGray);
+    }
+
+    #bg-mobile{
+      display: none;
+    }
+    #bg-pc{
+      position: absolute;
+      width: 45%;
+    }
+    #mockUp{
+      width: 85%;
+      position: relative;
+      z-index: 1;
+      margin-top: -5rem;
+    }
+
+    .overlay{
+      display: none;
+    }
+    .hamburger{
+      display: none;
+    }
+    .mainText{
+      padding: 1rem;
+      padding-top: 10%;
+      height: 100%;
+    }
+    .mainText p{
+      color: var(--GrayishBlue);
+    }
+    .mainText h1, .mainText p, .mainText button{
+      margin: 1rem;
+      font-weight: 400;
+    }
+    button{
+      margin: 0.5rem 0;
+      padding: 0.8rem 1.2rem;
+      border-radius: 26px;
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      background: linear-gradient(90deg, var(--LimeGreen), var(--BrightCyan));
+      cursor: pointer;
+    }
+    section{
+      background-color: var(--LightGrayishBlue);
+      clear: both;
+      height: 79vh;
+      padding: 1rem 0;
+      margin: 1rem 0;
+    }
+    section > h2{
+      font-weight: 400;
+      padding-top: 5rem;
+    }
+   
+    section > * {
+      margin: 1rem 2rem;
+      margin-top: 0;
+    }
+    .cards{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-content: space-around;
+    }
+    #card{
+      margin: 1rem;
+      padding: 0.5rem;
+    }
+    #card p{
+      padding-bottom: 1.5rem;
+    }
+
+    article{
+      margin: 1rem 1.5rem;
+      height: 70vh;
+    }
+    .article{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      justify-content: space-around;
+    }
+    article h2{
+      color: var(--DarkBlue);
+      font-weight: 400;
+      padding: 0.5rem 0;
+    }
+    aside{
+      background-color: var(--White);
+      margin: 1rem;
+      padding: 0.5rem;
+    }
+      aside img{
+      max-height: 12rem;
+      min-height: 2rem;
+      border-top-right-radius: 12px;
+      border-top-left-radius: 12px;
+      margin-bottom: 1rem;
+    }
+    aside span{
+      font-size: 9px;
+      color: var(--GrayishBlue);
+      padding: 0.5rem 0;
+    }
+    aside h6{
+      font-size: 14px;
+      padding: 0.5rem 0;
+      color: var(--DarkBlue);
+    }
+    aside p{
+      font-size: 12px;
+      color: var(--GrayishBlue);
+      padding-bottom: 1rem;
+    }    
+    footer{
+      background-color: var(--DarkBlue);
+      text-align: center;
+      padding: 0.2rem;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      height: 30vh;
+    }
+
+    .contact img{
+      margin: 1.5rem 0;
+    }
+    .links, .icons{
+      cursor: pointer;
+    }
+    .icons img{
+      margin: 1rem 5px;
+    }
+    .links ul li{
+      margin: 15px 0;
+      color: var(--LightGrayishBlue);
+      font-size: 14px;
+      list-style: none;
+    }
+    .links{
+      display: flex;
+    }
+    .list-one, .list-two{
+      margin: 1rem;
+    }
+    footer button{
+      margin: 1rem 0;
+    }
+  .credit p{
+    color: var(--GrayishBlue);
+    font-size: 12px;
+  }
+  }
   </style>
 </head>
 <body style="background-color: #fff;">
 
-  <header style="position: sticky; z-index: 99;">
+  <header>
     <img src="images/logo.svg" alt="">
 
     <ul>
@@ -179,7 +416,8 @@ header, main, section, footer{
     <button>Request Invite</button>
 
     <div id='hamburger'>
-     <img src="images/icon-hamburger.svg" alt="" id="hamburger">
+     <img src="images/icon-hamburger.svg" alt="" class="hamburger isOpen">
+     <img src="images/icon-close.svg" alt="" class="hamburger isClosed">
     </div>
   </header>
 
@@ -187,18 +425,30 @@ header, main, section, footer{
 
 <main>
 
+<div class="hamMenu overlay closed">
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Contact</li>
+      <li>Blog</li>
+      <li>Careers</li>
+    </ul>
+  </div>
   <div class="bg">
-    <img src="images/bg-intro-mobile.svg" alt="" width="100%"  style="position: absolute;">
-    <img src="images/image-mockups.png" alt="" width=100% style="position: relative; z-index: 1; margin-top: -5em;">
+    <img src="images/bg-intro-mobile.svg" alt="" width="100%" id="bg-mobile">
+    <img src="images/bg-intro-desktop.svg" alt="" width="100%"  id="bg-pc">
+    <img src="images/image-mockups.png" alt="" width=100% id="mockUp">
 
   </div>
 
+  <div class="mainText">
   <h1>Next generation digital banking</h1>
 
   <p>Take your financial life online. Your Easybank account will be a one-stop-shop 
   for spending, saving, budgeting, investing, and much more.</p>
 
   <button>Request Invite</button>
+</div>
 </main>
 
 
@@ -244,6 +494,7 @@ header, main, section, footer{
 <article>
  <h2>Latest Articles</h2>
 
+ <div class="article">
   <aside>
     <img src="images/image-currency.jpg" alt="" width="100%">
     <span>By Claire Robinson</span>
@@ -276,12 +527,13 @@ header, main, section, footer{
   It’s easy to request an invite through the site ...</p>
   </aside>
 </article>
+</div>
 
 <footer>
 
-  <img src="images/logo.svg" alt="">
+  
   <div class="contact">
-    <img src="" alt="">
+    <img src="images/logo.svg" alt="">
     <div class="icons">
       <img src="images/icon-facebook.svg" alt="">
       <img src="images/icon-youtube.svg" alt="">
@@ -292,10 +544,12 @@ header, main, section, footer{
   </div>
 
   <div class="links">
-    <ul>
+    <ul class="list-one">
       <li>About Us</li>
       <li>Contact</li>
       <li>Blog</li>
+      </ul>
+      <ul class="list-two">
       <li>Careers</li>
       <li>Support</li>
       <li>Privacy Policy</li>
@@ -313,5 +567,26 @@ header, main, section, footer{
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="#">As-Siddeeq</a>.
   </div>
+
+  <script>
+    let menu = document.querySelector('.hamMenu');
+    let openMenu = document.querySelector('.isOpen');
+    let closedMenu = document.querySelector('.isClosed');
+    let overlay = document.querySelector('.overlay');
+
+    openMenu.addEventListener('click', () => {
+      openMenu.style.display = 'none'
+      closedMenu.style.display = 'block'
+      overlay.style.display = 'block'
+    })
+
+    closedMenu.addEventListener('click', () => {
+      closedMenu.style.display = 'none'
+      openMenu.style.display = 'block'
+      overlay.style.display = 'none'
+    })
+
+
+  </script>
 </body>
 </html>
